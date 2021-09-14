@@ -9,13 +9,17 @@ maven "maven-nodo-principal"
         stage('Build') {
             steps {
                 echo 'Building..'                
-            }
+            }            
+        }
+        
+        stage('Build') {
             steps {
                 dir (‘maven-adderapp’) {
-                sh 'mvn -DskipTests clean package'
+                    sh 'mvn -DskipTests clean package'
                 }
             }
         }
+
         stage('Test') {
             steps {
                 echo 'Testing..'
