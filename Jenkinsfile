@@ -8,7 +8,9 @@ maven "maven-nodo-principal"
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Building..'                
+            }
+            steps {
                 dir (‘maven-adderapp’) {
                 sh 'mvn -DskipTests clean package'
                 }
