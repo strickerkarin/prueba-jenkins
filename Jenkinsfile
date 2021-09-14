@@ -8,10 +8,8 @@ maven "maven-nodo-principal"
     stages {      
         stage('Build') {
             steps {
-                dir (‘maven-adderapp’) {
-                    sh 'mvn -DskipTests clean package'
-                }
-            }
+                echo 'Building...'
+            }            
         }
 
         stage('Test') {
@@ -22,6 +20,14 @@ maven "maven-nodo-principal"
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                dir (‘maven-adderapp’) {
+                    sh 'mvn -DskipTests clean package'
+                }
             }
         }
     }
