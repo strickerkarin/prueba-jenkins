@@ -2,14 +2,19 @@ pipeline {
     agent any
     
     tools {
-maven "maven-nodo-principal"
+        maven "maven-nodo-principal"
     }
 
     stages {      
         stage('Build') {
             steps {
                 echo 'Building...'
-            }            
+            } 
+            steps {
+                dir ("maven-adderapp") {
+                    sh 'mvn -DskipTests clean package'
+                }
+            }
         }
 
         stage('Test') {
@@ -21,14 +26,7 @@ maven "maven-nodo-principal"
             steps {
                 echo 'Deploying....'
             }
-        }
+        }       
         
-        stage('Build') {
-            steps {
-                dir (‘maven-adderapp’) {
-                    sh 'mvn -DskipTests clean package'
-                }
-            }
-        }
     }
 }
