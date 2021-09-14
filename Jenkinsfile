@@ -5,13 +5,7 @@ pipeline {
 maven "maven-nodo-principal"
     }
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'                
-            }            
-        }
-        
+    stages {      
         stage('Build') {
             steps {
                 dir (‘maven-adderapp’) {
