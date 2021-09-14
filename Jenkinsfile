@@ -8,7 +8,7 @@ pipeline {
     stages {      
         stage('Build') {            
             steps {
-                dir ('maven-adderapp') {
+                dir (‘maven-adderapp’) {
                     sh 'mvn -DskipTests clean package'
                 }
             }
